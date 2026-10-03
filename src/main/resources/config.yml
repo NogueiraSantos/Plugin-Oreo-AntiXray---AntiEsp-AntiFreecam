@@ -1,0 +1,118 @@
+# =====================================================
+# OreoAntiXray - Configuração Geral
+# Proteção Avançada contra X-Ray, ESP e Freecam
+# Autor: Nogueira
+# =====================================================
+
+# 1. Ofuscador de Minérios (Ore Obfuscator & Anti-Xray)
+# Esconde minérios transformando-os em pedra/deepslate/netherrack até o jogador ter linha de visão direta.
+# Funciona perfeitamente no Overworld e no Nether (esconde Ancient Debris, Ouro e Quartzo atrás de netherrack).
+ORE-OBFUSCATOR:
+  ENABLED: true
+  # Ocultar minérios que estão atrás de paredes sólidas (estilo Anti-ESP com raycast de linha de visão)
+  HIDE-BEHIND-WALLS: true
+  # Raio (em blocos) de verificação e alcance ao redor do jogador
+  PROXIMITY-RADIUS: 8
+  # Camada Y a partir da qual o minério enterrado no Overworld vira DEEPSLATE (abaixo de 0)
+  DEEPSLATE-Y-LEVEL: 0
+  # Minérios afetados pelo ofuscador
+  ORES:
+    - DIAMOND_ORE
+    - DEEPSLATE_DIAMOND_ORE
+    - ANCIENT_DEBRIS
+    - GOLD_ORE
+    - DEEPSLATE_GOLD_ORE
+    - IRON_ORE
+    - DEEPSLATE_IRON_ORE
+    - EMERALD_ORE
+    - DEEPSLATE_EMERALD_ORE
+    - LAPIS_ORE
+    - DEEPSLATE_LAPIS_ORE
+    - REDSTONE_ORE
+    - DEEPSLATE_REDSTONE_ORE
+    - COPPER_ORE
+    - DEEPSLATE_COPPER_ORE
+    - COAL_ORE
+    - DEEPSLATE_COAL_ORE
+    - NETHER_GOLD_ORE
+    - NETHER_QUARTZ_ORE
+
+# 2. Minérios Falsos / Iscas (Fake Ores & Decoys)
+# Cria minérios falsos no cliente para detectar usuários de X-Ray que cavam em linha reta.
+# No Overworld gera Diamantes, Esmeraldas e Ouro embutidos na rocha/deepslate.
+# No Nether gera Ancient Debris (Netherite) e Ouro do Nether embutidos na netherrack/blackstone/basalto.
+FAKE-ORES:
+  ENABLED: true
+  # Quantidade padrão de armadilhas de minério falso por chunk
+  TRAPS-PER-CHUNK: 3
+  # Som emitido para operadores ao disparar um alerta
+  ALERT-SOUND: 'ENTITY_EXPERIENCE_ORB_PICKUP'
+
+  # Configurações para o Overworld (Mundo Normal)
+  OVERWORLD:
+    MIN-Y: -58
+    MAX-Y: 30
+    TRAPS-PER-CHUNK: 3
+    # Tipos de minérios falsos gerados: Diamante, Esmeralda e Ouro
+    TYPES:
+      - DIAMOND_ORE
+      - DEEPSLATE_DIAMOND_ORE
+      - EMERALD_ORE
+      - DEEPSLATE_EMERALD_ORE
+      - GOLD_ORE
+      - DEEPSLATE_GOLD_ORE
+
+  # Configurações para o Nether
+  NETHER:
+    ENABLED: true
+    MIN-Y: 8
+    MAX-Y: 118
+    TRAPS-PER-CHUNK: 3
+    # Tipos de minérios falsos gerados no Nether: Ancient Debris (Netherite) e Ouro do Nether
+    TYPES:
+      - ANCIENT_DEBRIS
+      - NETHER_GOLD_ORE
+      - NETHER_QUARTZ_ORE
+
+# 3. Bloqueio de ESP (Anti-ESP System)
+# Transforma Baús e Spawners em blocos de ar quando estão fora do campo de visão (atrás de paredes).
+# Funciona tanto no Overworld quanto no Nether (baús de fortalezas/bastiões e spawners de blaze).
+ANTI-ESP:
+  ENABLED: true
+  # Distância máxima de raycast e verificação de linha de visão (em blocos)
+  MAX-DISTANCE: 32.0
+  # Raio de proximidade direta (se o jogador estiver colado no baú, sempre renderiza)
+  PROXIMITY-BYPASS: 2.5
+  # Blocos protegidos contra ESP
+  BLOCKS:
+    - CHEST
+    - TRAPPED_CHEST
+    - BARREL
+    - SPAWNER
+    - TRIAL_SPAWNER
+    - SHULKER_BOX
+
+# 4. Bloqueio de Freecam por Camada (Anti-Freecam Y-Level)
+# Jogadores na superfície do Overworld (acima de Y=45) veem o subterrâneo (abaixo de Y=40) como rocha sólida.
+# NOTA: O Anti-Freecam opera EXCLUSIVAMENTE no Overworld para não interferir na geração natural do Nether/End.
+ANTI-FREECAM:
+  ENABLED: true
+  # Camada superior de ativação do bloqueio de Freecam no Overworld
+  UPPER-Y: 45
+  # Camada abaixo da qual tudo vira rocha sólida (água, lava, ar, minérios e entidades somem)
+  LOWER-Y: 40
+  # Raio de chunks atualizados ao cruzar a camada ou teleportar (área ao redor)
+  REFRESH-RADIUS: 12
+  # Ocultar completamente todas as entidades subterrâneas para quem estiver na superfície
+  HIDE-ENTITIES: true
+  # Bloco usado para preencher na visão do jogador
+  REPLACEMENT-BLOCK: 'STONE'
+  DEEP-REPLACEMENT-BLOCK: 'DEEPSLATE'
+
+# 5. Otimizações de Desempenho (20.0 TPS Garantido)
+PERFORMANCE:
+  # Frequência de checagem do loop de proximidade em ticks (4 ticks = 0.2 segundos)
+  CHECK-INTERVAL-TICKS: 4
+  # Mundos desativados
+  DISABLED-WORLDS:
+    - 'world_the_end'

@@ -1,0 +1,25 @@
+# =====================================================
+# OreoAntiXray - Mensagens
+# =====================================================
+
+PREFIX: "&4[Oreo] "
+
+ALERT:
+  # Alerta enviado aos operadores e console
+  FORMAT: "&4[Oreo] &fDetectamos uma atividade suspeita de &e{player} &8- &e[Teleportar]"
+  TELEPORT-BUTTON-TEXT: "&e[Teleportar]"
+  TELEPORT-HOVER: "&eClique para teleportar até &f{player} &eem modo espectador!"
+  TELEPORTED: "&aVocê foi teleportado para &e{player} &aem modo espectador!"
+
+COMMANDS:
+  NO-PERMISSION: "&cVocê não tem permissão para usar este comando."
+  PLAYER-NOT-FOUND: "&cJogador &e{player} &cnão encontrado ou offline."
+  RELOAD-SUCCESS: "&aConfigurações do OreoAntiXray recarregadas com sucesso!"
+  ALERTS-TOGGLED-ON: "&aAlertas de suspeita ativados para você!"
+  ALERTS-TOGGLED-OFF: "&cAlertas de suspeita desativados para você!"
+  HELP:
+    - "&e---- &4OreoAntiXray &7(Comandos) &e----"
+    - "&e/oreo reload &7- Recarrega as configurações"
+    - "&e/oreo alerts &7- Ativa/desativa alertas de suspeita"
+    - "&e/oreo inspect <jogador> &7- Inspeciona jogador em modo espectador"
+    - "&e/oreo status &7- Exibe o status das proteções e TPS"

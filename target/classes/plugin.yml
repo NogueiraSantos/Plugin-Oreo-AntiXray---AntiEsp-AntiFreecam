@@ -1,0 +1,13 @@
+name: OreoAntiXray
+version: '1.0'
+main: me.theus.oreoAntiXray.OreoAntiXray
+api-version: '1.21'
+depend: [packetevents]
+authors: [Nogueira]
+description: Plugin avancado de Anti-Xray, Anti-ESP, Fake Ores e Anti-Freecam para Paper/Folia.
+
+commands:
+  oreo:
+    description: Comando principal do OreoAntiXray
+    permission: oreo.admin
+    aliases: [oreoxray, oreoantixray, oax]

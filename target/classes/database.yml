@@ -1,0 +1,27 @@
+DATABASE: SQLITE
+
+MONGODB:
+  URI: ""
+  ADDRESS: 127.0.0.1
+  PORT: 27017
+  DATABASE: OreoAntiXray
+  AUTHENTICATION:
+    ENABLED: false
+    USERNAME: admin
+    PASSWORD: pass
+    DATABASE: admin
+
+MYSQL:
+  HOST: 127.0.0.1
+  PORT: 3306
+  DATABASE: oreo_antixray
+  USER: root
+  PASSWORD: ""
+  PARAMS: useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+  POOL:
+    MAX-POOL-SIZE: 10
+    MIN-IDLE: 2
+    CONNECTION-TIMEOUT: 30000
+
+SQLITE:
+  FILE: plugins/OreoAntiXray/oreoantixray.db
